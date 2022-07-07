@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    Greeting("RocketMan")
                 }
             }
         }
@@ -34,11 +34,13 @@ class MainActivity : ComponentActivity() {
 // then invoked inside the ComponentActivity function which renders all the UIs they describe
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+    Text(text = "Hello $name")
 }
 
 // Composable functions can call other Composable functions inside them
 // eg. BirthdayCardPreview calling Greeting inside it
+// the 'Preview' Composable functions are just for displaying your changes in the Design area
+// they don't change the actual code that'll be in the app/phone/emulator
 @Preview(showBackground = true)
 @Composable
 fun BirthdayCardPreview() {
