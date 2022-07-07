@@ -29,15 +29,26 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+//other functions - Composable functions ... etc
+// they're declared just beneath/ after main ComponentActivity function
+// then invoked inside the ComponentActivity function which renders all the UIs they describe
 @Composable
 fun Greeting(name: String) {
     Text(text = "Hello $name!")
 }
 
+// Composable functions can call other Composable functions inside them
+// eg. BirthdayCardPreview calling Greeting inside it
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun BirthdayCardPreview() {
     HappyBirthdayTheme {
-        Greeting("Android")
+        Greeting("RocketMan")
     }
 }
+
+// Composable functions are just like "Functional Components in Javascript"
+// Composable functions don't return anything
+// they just describe the UI
+// they must be start with a "CAPITAL LETTER"
+// they are things not actions || they are nouns not verbs eg. BirthdayCard, Icon, BlackButton etc...
