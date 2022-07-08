@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,19 +23,31 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("RocketMan")
+                    
                 }
             }
         }
     }
 }
 
+// Composable functions are just like "Functional Components in Javascript"
+// Composable functions don't return anything
+// they just describe the UI
+// they must be start with a "CAPITAL LETTER"
+// they are things not actions || they are nouns not verbs eg. BirthdayCard, Icon, BlackButton etc...
 //other functions - Composable functions ... etc
-// they're declared just beneath/ after main ComponentActivity function
+// are declared just beneath/ after main ComponentActivity function
 // then invoked inside the ComponentActivity function which renders all the UIs they describe
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name")
+fun BirthdayGreetingWithText(message:String, from:String) {
+    Text(
+        text = message,
+        fontSize = 36.sp
+    )
+    Text(
+        text = from,
+        fontSize = 24.sp
+    )
 }
 
 // Composable functions can call other Composable functions inside them
@@ -45,12 +58,6 @@ fun Greeting(name: String) {
 @Composable
 fun BirthdayCardPreview() {
     HappyBirthdayTheme {
-        Greeting("RocketMan")
+        BirthdayGreetingWithText("Happy Birthday Julie", "from -Malika-")
     }
 }
-
-// Composable functions are just like "Functional Components in Javascript"
-// Composable functions don't return anything
-// they just describe the UI
-// they must be start with a "CAPITAL LETTER"
-// they are things not actions || they are nouns not verbs eg. BirthdayCard, Icon, BlackButton etc...
