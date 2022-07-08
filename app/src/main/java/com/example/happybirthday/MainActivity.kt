@@ -3,6 +3,7 @@ package com.example.happybirthday
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
@@ -10,6 +11,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
@@ -53,6 +55,16 @@ fun BirthdayGreetingWithText(message:String, from:String) {
     }
 }
 
+// res folder: drawable(images), mipmap(launcher icons) & values(strings)
+@Composable
+fun BirthdayGreetingWithImage(message: String, from: String) {
+    // painterResource() loads the 'androidparty' image found in the drawable subfolder & in the resources folder
+    val image = painterResource(R.drawable.androidparty)
+    Image(
+        painter = image,
+        contentDescription = null // content description defines the purpose of a UI element | since here it's set to null, the TalkBack skips this image composable
+    )
+}
 // Composable functions can call other Composable functions inside them
 // eg. BirthdayCardPreview calling Greeting inside it
 // the 'Preview' Composable functions are just for displaying your changes in the Design area
@@ -61,6 +73,6 @@ fun BirthdayGreetingWithText(message:String, from:String) {
 @Composable
 fun BirthdayCardPreview() {
     HappyBirthdayTheme {
-        BirthdayGreetingWithText("Happy Birthday Julie", " -from- Malika")
+        BirthdayGreetingWithImage("Happy Birthday Julie", " -from- Malika")
     }
 }
