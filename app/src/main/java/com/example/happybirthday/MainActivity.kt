@@ -3,6 +3,8 @@ package com.example.happybirthday
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -40,14 +42,16 @@ class MainActivity : ComponentActivity() {
 // then invoked inside the ComponentActivity function which renders all the UIs they describe
 @Composable
 fun BirthdayGreetingWithText(message:String, from:String) {
-    Text(
-        text = message,
-        fontSize = 36.sp
-    )
-    Text(
-        text = from,
-        fontSize = 24.sp
-    )
+    Column{
+        Text(
+            text = message,
+            fontSize = 20.sp
+        )
+        Text(
+            text = from,
+            fontSize = 20.sp
+        )
+    }
 }
 
 // Composable functions can call other Composable functions inside them
@@ -58,6 +62,6 @@ fun BirthdayGreetingWithText(message:String, from:String) {
 @Composable
 fun BirthdayCardPreview() {
     HappyBirthdayTheme {
-        BirthdayGreetingWithText("Happy Birthday Julie", "from -Malika-")
+        BirthdayGreetingWithText("Happy Birthday Julie", " -from- Malika")
     }
 }
