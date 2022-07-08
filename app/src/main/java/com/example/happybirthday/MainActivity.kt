@@ -44,11 +44,11 @@ fun BirthdayGreetingWithText(message:String, from:String) {
     Column{
         Text(
             text = message,
-            fontSize = 20.sp
+            fontSize = 24.sp
         )
         Text(
             text = from,
-            fontSize = 20.sp
+            fontSize = 12.sp
         )
     }
 }
