@@ -4,14 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
@@ -27,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    BirthdayGreetingWithText("Happy Birthday Julie", " -from- Malika")
+                    BirthdayGreetingWithImage("Happy Birthday Julie", " -from- Malika")
                 }
             }
         }
@@ -64,7 +63,11 @@ fun BirthdayGreetingWithImage(message: String, from: String) {
     Box {
         Image(
             painter = image,
-            contentDescription = null // content description defines the purpose of a UI element | since here it's set to null, the TalkBack skips this image composable
+            contentDescription = null, // content description defines the purpose of a UI element | since here it's set to null, the TalkBack skips this image composable
+            modifier = Modifier //Modifiers decorate/ add behavior to Jetpack Compose UI elements
+                .fillMaxHeight()
+                .fillMaxWidth(),
+            contentScale = ContentScale.Crop
         )
         BirthdayGreetingWithText("Happy Birthday Julie", " -from- Malika")
     }
