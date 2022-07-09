@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
@@ -60,10 +61,13 @@ fun BirthdayGreetingWithText(message:String, from:String) {
 fun BirthdayGreetingWithImage(message: String, from: String) {
     // painterResource() loads the 'androidparty' image found in the drawable subfolder & in the resources folder
     val image = painterResource(R.drawable.androidparty)
-    Image(
-        painter = image,
-        contentDescription = null // content description defines the purpose of a UI element | since here it's set to null, the TalkBack skips this image composable
-    )
+    Box {
+        Image(
+            painter = image,
+            contentDescription = null // content description defines the purpose of a UI element | since here it's set to null, the TalkBack skips this image composable
+        )
+        BirthdayGreetingWithText("Happy Birthday Julie", " -from- Malika")
+    }
 }
 // Composable functions can call other Composable functions inside them
 // eg. BirthdayCardPreview calling Greeting inside it
