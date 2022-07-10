@@ -79,7 +79,7 @@ fun BirthdayGreetingWithImage(message: String, from: String) {
                 .fillMaxWidth(),
             contentScale = ContentScale.Crop
         )
-        BirthdayGreetingWithText("Happy Birthday Julie", " -from- Malika")
+        BirthdayGreetingWithText(message, from)
     }
 }
 // Composable functions can call other Composable functions inside them
