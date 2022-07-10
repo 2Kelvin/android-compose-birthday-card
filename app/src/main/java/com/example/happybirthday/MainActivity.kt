@@ -52,7 +52,7 @@ fun BirthdayGreetingWithText(message:String, from:String) {
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentWidth(Alignment.CenterHorizontally)
-                .padding(start = 16.dp, top = 16.dp)
+                .padding(start = 16.dp, top = 30.dp)
         )
         Text(
             text = from,
@@ -69,7 +69,7 @@ fun BirthdayGreetingWithText(message:String, from:String) {
 @Composable
 fun BirthdayGreetingWithImage(message: String, from: String) {
     // painterResource() loads the 'androidparty' image found in the drawable subfolder & in the resources folder
-    val image = painterResource(R.drawable.androidparty)
+    val image = painterResource(R.drawable.meastronaut)
     Box {
         Image(
             painter = image,
